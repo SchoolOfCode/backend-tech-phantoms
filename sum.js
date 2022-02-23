@@ -1,3 +1,3 @@
 export function getSum(n) {
-  return n * 2;
+  return 2 * n;
 }
