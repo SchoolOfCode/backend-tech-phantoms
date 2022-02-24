@@ -1,8 +1,8 @@
 import db from "../../connection.js";
 
 const response = await db.query(
-  `INSERT INTO users (username, first_name, last_name) VALUES ($1, $2, $3);`,
-  ["iseecode", "Chris", "Code"]
+  `INSERT INTO users (email, level) VALUES ($1, $2);`,
+["example@email.com", 1]
 );
 
 console.log(response);
