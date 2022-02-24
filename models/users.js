@@ -12,5 +12,11 @@ export async function getUsersById(reqID) {
 
 export async function postNewUser(reqBody) {
   const email = reqBody.email;
-  const updated = await db.query(`INSERT INTO users (email, level) VALUES($1, $2)`, [reqBody]);
+  const updated = await db.query(`INSERT INTO users (email, level) VALUES($1, $2);`, [email]);
+  return updated.rows;
+}
+
+export async function deleteUser(reqID) {
+  const deleted = await db.query(`DELETE FROM users WHERE id = $1;`, [reqID]);
+  return deleted.rows;
 }
