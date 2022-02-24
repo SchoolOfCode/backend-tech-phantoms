@@ -5,6 +5,8 @@ const response = await db.query(
 ["example@email.com", 1]
 );
 
+
+
 console.log(response);
 
 db.end();
