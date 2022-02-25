@@ -12,7 +12,7 @@ export async function getUsersById(reqID) {
 
 export async function postNewUser(reqBody) {
   const email = reqBody.email;
-  const updated = await db.query(`INSERT INTO users (email, level) VALUES($1, $2);`, [email]);
+  const updated = await db.query(`INSERT INTO users (email) VALUES($1);`, [email]);
   return updated.rows;
 }
 
