@@ -31,3 +31,8 @@ export async function saveRecipe(email, recipeID) {
   //returns the user record that was updated
   return savedRecipe.rows;
 }
+
+export async function getSavedRecipes(email){
+  const savedRecipes = await db.query(`SELECT DISTINCT saved_recipes FROM users WHERE email = $1;`, [email]);
+  return savedRecipes.rows; 
+}

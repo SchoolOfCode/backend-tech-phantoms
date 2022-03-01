@@ -5,6 +5,7 @@ import {
   postNewUser,
   deleteUser,
   saveRecipe,
+  getSavedRecipes
 } from "../models/users.js";
 
 const router = express.Router();
@@ -58,5 +59,16 @@ router.post("/:email/favourites/:recipeID", async function (req, res) {
     payload: savedRecipe,
   });
 });
+
+//get savedRecipe for a userSelect: 
+router.get("/:email/favourites/", async function (req, res) {
+  const savedRecipes = await getSavedRecipes(req.params.email);
+
+  res.json({
+    success: true,
+    payload: savedRecipes,
+  });
+});
+
 
 export default router;
