@@ -1,8 +1,7 @@
 import db from "../../connection.js";
 
 const response = await db.query(
-  `INSERT INTO users (username, first_name, last_name) VALUES ($1, $2, $3);`,
-  ["iseecode", "Chris", "Code"]
+  `CREATE TABLE IF NOT EXISTS savedRecipes (RecipeID SERIAL PRIMARY KEY, UserID INT, saved INTEGER[]);`
 );
 
 console.log(response);

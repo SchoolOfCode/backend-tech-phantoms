@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers } from "../models/users.js";
+import { getAllUsers, getUsersById, postNewUser, deleteUser } from "../models/users.js";
 
 const router = express.Router();
 
@@ -9,8 +9,38 @@ router.get("/", async function (req, res, next) {
 
   res.json({
     success: true,
-    payload: users
+    payload: users,
   });
 });
 
+router.get("/:id", async function (req, res, next) {
+  const reqId = Number(req.params.id);
+  const user = await getUsersById(reqId);
+
+  res.json({
+    success: true,
+    payload: user,
+  });
+});
+
+router.post("/", async function (req, res) {
+  const newUser = req.body;
+  const update = await postNewUser(newUser);
+
+  res.json({
+    success: true,
+    payload: update,
+  });
+});
+
+router.delete("/:id", async function (req, res){
+  const reqId = Number(req.params.id);
+  const deleted = await deleteUser(reqId);
+
+  res.json({
+    success: true,
+    payload: deleted
+  });
+
+});
 export default router;
