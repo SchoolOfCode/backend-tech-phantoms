@@ -1,5 +1,11 @@
 import express from "express";
-import { getAllUsers, getUsersById, postNewUser, deleteUser } from "../models/users.js";
+import {
+  getAllUsers,
+  getUsersById,
+  postNewUser,
+  deleteUser,
+  saveRecipe,
+} from "../models/users.js";
 
 const router = express.Router();
 
@@ -33,27 +39,24 @@ router.post("/", async function (req, res) {
   });
 });
 
-router.delete("/:id", async function (req, res){
+router.delete("/:id", async function (req, res) {
   const reqId = Number(req.params.id);
   const deleted = await deleteUser(reqId);
-  
+
   res.json({
     success: true,
-    payload: deleted
+    payload: deleted,
   });
-  
 });
-//host:/users/email/favourites
+
+//save a recipe for a user
 router.post("/:email/favourites/:recipeID", async function (req, res) {
-  const newRecipe = req.params.recipeID;
-  //const data = await postNewRecipe(newRecipe,req.params.email);
-  console.log(newRecipe)
-  console.log(req.params.email)
+  const savedRecipe = await saveRecipe(req.params.email, req.params.recipeID);
+
   res.json({
     success: true,
-    payload: [newRecipe, req.params.email]
+    payload: savedRecipe,
   });
 });
 
 export default router;
-
