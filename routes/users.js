@@ -36,11 +36,24 @@ router.post("/", async function (req, res) {
 router.delete("/:id", async function (req, res){
   const reqId = Number(req.params.id);
   const deleted = await deleteUser(reqId);
-
+  
   res.json({
     success: true,
     payload: deleted
   });
-
+  
 });
+//host:/users/email/favourites
+router.post("/:email/favourites/:recipeID", async function (req, res) {
+  const newRecipe = req.params.recipeID;
+  //const data = await postNewRecipe(newRecipe,req.params.email);
+  console.log(newRecipe)
+  console.log(req.params.email)
+  res.json({
+    success: true,
+    payload: [newRecipe, req.params.email]
+  });
+});
+
 export default router;
+
