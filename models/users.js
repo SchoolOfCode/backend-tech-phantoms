@@ -28,6 +28,6 @@ export async function saveRecipe(email, recipeID) {
     `UPDATE users SET saved_recipes = array_append(saved_recipes, $2) WHERE email = $1 RETURNING *;`,
     [email, recipeID]
   );
-  //looks like its returning the whole table, for now
+  //returns the user record that was updated
   return savedRecipe.rows;
 }
