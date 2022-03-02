@@ -1,4 +1,4 @@
-Create a database specifically for running tests on.
+- Create a database specifically for running tests on.
 This needs to be used during Continuous Testing. 
 We need to write a npm script that will change the environment variables (db uri connection details) to use test environment variables
 

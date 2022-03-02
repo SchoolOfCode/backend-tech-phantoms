@@ -9,7 +9,7 @@
     "db:reset": "node -r dotenv/config ./db/scripts/users/dropUsersTable.js",
     "db:deploy": "node -r dotenv/config ./db/scripts/users/createUsersTable.js && node -r dotenv/config ./db/scripts/users/populateUsersTable.js",
     "pretest": "cross-env NODE_ENV=test npm run db:reset && npm run db:deploy",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000"
+    "test": "npm run pretest && cross-env NODE_ENV=test jest --testTimeout=5000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
