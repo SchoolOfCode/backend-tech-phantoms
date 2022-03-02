@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "node ./bin/www.js",
-    "db:deploy": "node ./db/scripts/users/createTable.js && node ./db/scripts/users/populateTable.js",
-    "db:createusers": "node -r dotenv/config ./db/scripts/users/createTable.js",
-    "db:populateusers": "node -r dotenv/config ./db/scripts/users/populateTable.js",
     "dev": "nodemon -r dotenv/config ./bin/www.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "db:reset": "node -r dotenv/config ./db/scripts/users/dropUsersTable.js",
+    "db:deploy": "node -r dotenv/config ./db/scripts/users/createUsersTable.js && node -r dotenv/config ./db/scripts/users/populateUsersTable.js",
+    "pretest": "cross-env NODE_ENV=test npm run db:reset && npm run db:deploy",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=5000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -20,6 +20,7 @@
     "pg": "^8.7.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
