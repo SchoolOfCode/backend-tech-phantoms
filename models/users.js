@@ -32,7 +32,19 @@ export async function saveRecipe(email, recipeID) {
   return savedRecipe.rows;
 }
 
-export async function getSavedRecipes(email){
-  const savedRecipes = await db.query(`SELECT DISTINCT saved_recipes FROM users WHERE email = $1;`, [email]);
-  return savedRecipes.rows; 
+export async function getSavedRecipes(email) {
+  const savedRecipes = await db.query(
+    `SELECT DISTINCT saved_recipes FROM users WHERE email = $1;`,
+    [email]
+  );
+  return savedRecipes.rows;
+}
+
+export async function removeSavedRecipe(email, recipeID) {
+  const removing = await db.query(
+    `UPDATE users SET saved_recipes = array_remove(saved_recipes, $2) WHERE email = $1 RETURNING *;`,
+    [email, recipeID]
+  );
+  //returns the user record that was updated
+  return removing.rows;
 }

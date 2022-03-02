@@ -5,7 +5,8 @@ import {
   postNewUser,
   deleteUser,
   saveRecipe,
-  getSavedRecipes
+  getSavedRecipes,
+  removeSavedRecipe,
 } from "../models/users.js";
 
 const router = express.Router();
@@ -60,7 +61,7 @@ router.post("/:email/favourites/:recipeID", async function (req, res) {
   });
 });
 
-//get savedRecipe for a userSelect: 
+//get savedRecipe for a userSelect:
 router.get("/:email/favourites/", async function (req, res) {
   const savedRecipes = await getSavedRecipes(req.params.email);
 
@@ -70,5 +71,17 @@ router.get("/:email/favourites/", async function (req, res) {
   });
 });
 
+//remove a recipe from a user's saved recipes
+router.delete("/:email/favourites/:recipeID", async function (req, res) {
+  const removedRecipe = await removeSavedRecipe(
+    req.params.email,
+    req.params.recipeID
+  );
+
+  res.json({
+    success: true,
+    payload: removedRecipe,
+  });
+});
 
 export default router;
