@@ -5,6 +5,8 @@ import {
   postNewUser,
   deleteUser,
   saveRecipe,
+  getSavedRecipes,
+  removeSavedRecipe,
 } from "../models/users.js";
 
 const router = express.Router();
@@ -56,6 +58,29 @@ router.post("/:email/favourites/:recipeID", async function (req, res) {
   res.json({
     success: true,
     payload: savedRecipe,
+  });
+});
+
+//get savedRecipe for a userSelect:
+router.get("/:email/favourites/", async function (req, res) {
+  const savedRecipes = await getSavedRecipes(req.params.email);
+
+  res.json({
+    success: true,
+    payload: savedRecipes,
+  });
+});
+
+//remove a recipe from a user's saved recipes
+router.delete("/:email/favourites/:recipeID", async function (req, res) {
+  const removedRecipe = await removeSavedRecipe(
+    req.params.email,
+    req.params.recipeID
+  );
+
+  res.json({
+    success: true,
+    payload: removedRecipe,
   });
 });
 
