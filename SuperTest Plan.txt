@@ -1,0 +1,10 @@
+Create a database specifically for running tests on.
+This needs to be used during Continuous Testing. 
+We need to write a npm script that will change the environment variables (db uri connection details) to use test environment variables
+
+Before Continuous Testing happens, we want to switch to using the testing database
+This means setting up the testing database before we run tests
+We will need to write DB scripts that
+    Empty the database (to get rid of previous test remant data)
+    Setup the database again
+Only then should we run the tests
