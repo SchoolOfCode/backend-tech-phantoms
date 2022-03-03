@@ -1,7 +1,7 @@
 import request from "supertest";
 import app from "../app.js";
 import { describe, it, afterAll } from "@jest/globals";
-import { pool } from "../db/connection.js";
+import pool from "../db/connection.js";
 
 afterAll(async () => {
   await pool.end();
