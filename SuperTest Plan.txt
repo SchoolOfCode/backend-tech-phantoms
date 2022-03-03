@@ -12,5 +12,7 @@ Run jest tests
 
 SuperTest is already installed
 Write test for adding a user to database
+    we havent determined when to use this route
+    cant test this because the users table has changed
 Write test for adding a recipe to a user's saved_recipes
 Write test for removing a recipe from a user's saved_recipes
