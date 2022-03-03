@@ -2,6 +2,23 @@
 This needs to be used during Continuous Testing. 
 We need to write a npm script that will change the environment variables (db uri connection details) to use test environment variables
 
+Updated Config with local env
+Install cross-env
+We want update our npm tests scripts to use env
+Write the scripts that will be used in Continuous Testing
+    Empty the database (to get rid of previous test remant data)
+    Create the database tables again
+    Populate the database tables
+
+"scripts": {
+    "start-dev": "nodemon index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+     "test": "npm run db:reset && cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
+}
+
+
 Before Continuous Testing happens, we want to switch to using the testing database
 This means setting up the testing database before we run tests
 We will need to write DB scripts that
