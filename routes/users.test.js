@@ -12,7 +12,7 @@ describe("Save Recipes Feature", () => {
     //arrange
     const userEmail = "example@email.com";
     const recipeID = "RecipeID123";
-    const URI = `users/` + userEmail + `/favourites/` + recipeID;
+    const URI = `/users/` + userEmail + `/favourites/` + recipeID;
 
     //act
     const res = await request(app).post(URI).set("Accept", "application/json");
