@@ -1,5 +1,6 @@
 import request from "supertest";
 import app from "../app.js";
+import { connectionString } from "../../../config.js";
 import pool from "../db/connection.js";
 /* 
 afterAll(async () => {
