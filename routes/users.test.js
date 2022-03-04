@@ -1,14 +1,13 @@
 import request from "supertest";
 import app from "../app.js";
-import { describe, it, afterAll } from "@jest/globals";
 import pool from "../db/connection.js";
-
+/* 
 afterAll(async () => {
   await pool.end();
 });
-
+ */
 describe("Save Recipes Feature", () => {
-  it("Add a recipe to a user's saved_recipes", async () => {
+  test("Add a recipe to a user's saved_recipes", async () => {
     //arrange
     const userEmail = "example@email.com";
     const recipeID = "RecipeID123";
