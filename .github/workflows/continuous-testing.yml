@@ -7,10 +7,6 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    env:
-      TESTING_DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      NODE_ENV: ${{ secrets.NODE_ENV }}
     steps:
       - uses: actions/checkout@v2
       # Cache node modules and next folder
@@ -25,4 +21,8 @@ jobs:
         with:
           node-version: "16.13.1"
       - run: npm install
+        env:
+          TESTING_DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
       - run: npm run test
