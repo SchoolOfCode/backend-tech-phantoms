@@ -13,15 +13,19 @@ describe("Save Recipes Feature", () => {
     const recipeID = "RecipeID123";
     const URI = `/users/` + userEmail + `/favourites/` + recipeID;
 
-    console.log("NODE_ENV", process.env.NODE_ENV);
+    console.log("NODE_ENV:", process.env.NODE_ENV);
     console.log(
-      "TESTING_DATABASE_URL",
+      "TESTING_DATABASE_URL:",
       typeof process.env.TESTING_DATABASE_URL
     );
-    console.log("DATABASE_URL", typeof process.env.DATABASE_URL);
+    console.log("DATABASE_URL:", typeof process.env.DATABASE_URL);
+    console.log(
+      "connectionString === TESTING_DATABASE_URL:",
+      process.env.TESTING_DATABASE_URL === connectionString
+    );
 
     //act
-    const res = await request(app).post(URI).set("Accept", "application/json");
+    const res = await request(app).post(URI);
 
     //assert
     expect(res.statusCode).toEqual(200);
