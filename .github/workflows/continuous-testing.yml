@@ -23,6 +23,6 @@ jobs:
       - run: npm install
       - run: npm run test
         env:
-          TESTING_DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TESTING_DATABASE_URL: hardcodedsecret123
+          DATABASE_URL: hardcodedsecret243414312312321
           NODE_ENV: ${{ secrets.NODE_ENV }}
