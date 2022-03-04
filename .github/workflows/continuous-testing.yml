@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TESTING_DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
+      NODE_ENV: ${{ secrets.NODE_ENV }}
     steps:
       - uses: actions/checkout@v2
       # Cache node modules and next folder
