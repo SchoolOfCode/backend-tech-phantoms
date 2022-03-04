@@ -10,7 +10,7 @@
     "db:createAllTables": "cross-env NODE_ENV=test node -r dotenv/config ./db/scripts/users/createUsersTable.js",
     "db:populateAllTables": "cross-env NODE_ENV=test node -r dotenv/config ./db/scripts/users/populateUsersTable.js",
     "000pretest": "cross-env NODE_ENV=test npm run db:dropAllTables && cross-env NODE_ENV=test npm run db:createAllTables && cross-env NODE_ENV=test npm run db:populateAllTables",
-    "test": "cross-env NODE_ENV=test TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} node --experimental-vm-modules -r dotenv/config node_modules/jest/bin/jest.js"
+    "test": "cross-env NODE_ENV=banana TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} node --experimental-vm-modules -r dotenv/config node_modules/jest/bin/jest.js --testTimeout=15000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

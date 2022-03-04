@@ -4,9 +4,11 @@ import { connectionString } from "../config.js";
 import { describe, test, it, afterAll } from "@jest/globals";
 import pool from "../db/connection.js";
 
+/*
 afterAll(async () => {
   await pool.end();
 });
+*/
 
 describe("Save Recipes Feature", () => {
   test("Add a recipe to a user's saved_recipes", async () => {
@@ -16,11 +18,8 @@ describe("Save Recipes Feature", () => {
     const URI = `/users/` + userEmail + `/favourites/` + recipeID;
 
     console.log("NODE_ENV:", process.env.NODE_ENV);
-    console.log(
-      "TESTING_DATABASE_URL:",
-      typeof process.env.TESTING_DATABASE_URL
-    );
-    console.log("DATABASE_URL:", typeof process.env.DATABASE_URL);
+    console.log("TESTING_DATABASE_URL:", process.env.TESTING_DATABASE_URL);
+    console.log("DATABASE_URL:", process.env.DATABASE_URL);
     console.log(
       "connectionString === TESTING_DATABASE_URL:",
       process.env.TESTING_DATABASE_URL === connectionString
