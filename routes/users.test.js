@@ -4,11 +4,9 @@ import { connectionString } from "../config.js";
 import { describe, test, it, afterAll } from "@jest/globals";
 import pool from "../db/connection.js";
 
-/*
 afterAll(async () => {
   await pool.end();
 });
-*/
 
 describe("Save Recipes Feature", () => {
   test("Add a recipe to a user's saved_recipes", async () => {
