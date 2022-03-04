@@ -1,7 +1,5 @@
 import request from "supertest";
 import app from "../app.js";
-import { connectionString } from "../config.js";
-import { describe, test, it, afterAll } from "@jest/globals";
 import pool from "../db/connection.js";
 
 afterAll(async () => {
@@ -14,14 +12,6 @@ describe("Save Recipes Feature", () => {
     const userEmail = "example@email.com";
     const recipeID = "RecipeID123";
     const URI = `/users/` + userEmail + `/favourites/` + recipeID;
-
-    console.log("NODE_ENV:", process.env.NODE_ENV);
-    console.log("TESTING_DATABASE_URL:", process.env.TESTING_DATABASE_URL);
-    console.log("DATABASE_URL:", process.env.DATABASE_URL);
-    console.log(
-      "connectionString === TESTING_DATABASE_URL:",
-      process.env.TESTING_DATABASE_URL === connectionString
-    );
 
     //act
     const res = await request(app).post(URI);
