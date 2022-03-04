@@ -1,0 +1,18 @@
+Create a database specifically for running tests on.
+This needs to be used during Continuous Testing. 
+We need to write a npm script that will change the environment variables (db uri connection details) to use test environment variables
+Updated Config with conditional test and live env for DB connection
+Install cross-env
+We want update our npm tests scripts to use env
+Write the scripts that will be used in Continuous Testing
+    Empty the database (to get rid of previous test remant data)
+    Create the database tables again
+    Populate the database tables
+Run jest tests
+
+SuperTest is already installed
+Write test for adding a user to database
+    we havent determined when to use this route
+    cant test this because the users table has changed
+Write test for adding a recipe to a user's saved_recipes
+Write test for removing a recipe from a user's saved_recipes
