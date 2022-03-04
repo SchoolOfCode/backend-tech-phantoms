@@ -7,6 +7,7 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - uses: actions/checkout@v2
       # Cache node modules and next folder
@@ -23,6 +24,6 @@ jobs:
       - run: npm install
       - run: npm run test
         env:
-          TESTING_DATABASE_URL: hardcodedsecret123
-          DATABASE_URL: hardcodedsecret243414312312321
+          TESTING_DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NODE_ENV: ${{ secrets.NODE_ENV }}
