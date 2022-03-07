@@ -9,14 +9,25 @@ export async function getShoppingList(email) {
 
   return data;
 }
-export async function addIngredients(email, recipeID) {
-  //add to shoppingListData immutably
-
-  //shoppingListData = [...shoppingListData, ...newItems];
-  return "a shoppingList array";
+export async function addIngredients(email, newItems) {
+  //find a shopping list that matches with the user's email
+  const data = shoppingListData.filter((user)=>{ 
+    if (user.email===email) {
+      shoppingListData = [...user.shoppingList, ...newItems];
+      return shoppingListData;
+    }
+  });
+  return data;
 }
 
-export async function deleteIngredient(email, recipeID) {
+export async function deleteIngredient(email, ) {
   //remove from shoppingListData immutably
-  return "a shoppingList array";
+  const data = shoppingListData.filter((user)=>{ 
+    if (user.email===email) {
+      shoppingListData = [...user.shoppingList, ...newItems];
+      return shoppingListData;
+    }
+  });
+  
+  return data;
 }
