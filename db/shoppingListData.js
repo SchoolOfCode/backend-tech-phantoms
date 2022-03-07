@@ -1,4 +1,4 @@
-export let shoppingListData = [
+export default [
   {
     email: "example@email.com",
     shoppingList: [
