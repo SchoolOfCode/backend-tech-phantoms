@@ -17,7 +17,7 @@ router.get("/:email", async function (req, res) {
   });
 });
 
-//save a recipe for a user
+//add ingredient to shoppingList for this user
 router.post("/:email", async function (req, res) {
   /*   NEEDS TO BE WRITTEN
   const savedRecipe = await addIngredients(
@@ -32,7 +32,7 @@ router.post("/:email", async function (req, res) {
   */
 });
 
-//remove a recipe from a user's saved recipes
+//remove an ingredient from a user's shoppingList
 router.delete("/:email/shopping/:itemIndex", async function (req, res) {
   /*    NEEDS TO BE WRITTEN
     const removedRecipe = await deleteIngredient(

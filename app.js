@@ -7,6 +7,7 @@ import cors from "cors";
 import logger from "morgan";
 
 import usersRouter from "./routes/users.js";
+import shoppingRouter from "./routes/shoppingList.js";
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter);
-app.use("/shopping", usersRouter);
+app.use("/shopping", shoppingRouter);
 
 app.use(function (req, res, next) {
   res
