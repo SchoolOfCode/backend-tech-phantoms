@@ -28,32 +28,27 @@ router.post("/:email", async function (req, res) {
   });
 });
 
-//check off ingredient in shoppingList for this user
+//check off ingredient in shoppingList for this user /shopping/:email/checkOff/:ingredientName
 router.post("/:email/checkOff/:item", async function (req, res) {
-  const addedIngredients = await markIngredientAsDone(
+  const updatedList = await markIngredientAsDone(
     req.params.email,
     req.params.item
   );
 
   res.json({
     success: true,
-    payload: addedIngredients,
+    payload: updatedList,
   });
 });
 
 //remove an ingredient from a user's shoppingList
-router.delete("/:email", async function (req, res) {
-  /*    NEEDS TO BE WRITTEN
-    const removedRecipe = await deleteIngredient(
-    req.params.email,
-    req.body.shoppingList
-  );
+router.delete("/:email/checkOff/:item", async function (req, res) {
+  const updatedList = await deleteIngredient(req.params.email, req.params.item);
 
   res.json({
     success: true,
-    payload: removedRecipe,
+    payload: updatedList,
   });
-  */
 });
 
 export default router;

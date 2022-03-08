@@ -52,14 +52,31 @@ export async function markIngredientAsDone(email, ingredientName) {
   return updatedShoppingList;
 }
 
-export async function deleteIngredient(email) {
-  //remove from shoppingListData immutably
-  const data = allShoppingLists.filter((user) => {
+export async function deleteIngredient(email, ingredientName) {
+  //item is the name of the ingredient
+  // console.log("email:", email);
+  // console.log("ingredientName:", ingredientName);
+  const updatedShoppingList = allShoppingLists.filter((user) => {
     if (user.email === email) {
-      shoppingListData = [...user.shoppingList, ...newItems];
-      return shoppingListData;
+      //update this users shopping list
+      const updatedShoppingList = user.shoppingList.filter(
+        (listItem, index) => {
+          if (listItem.ingredient === ingredientName) {
+            //find the ingredient in the shopping list
+
+            //console.log("List before delete:", user.shoppingList);
+
+            user.shoppingList = [
+              ...user.shoppingList.slice(0, index),
+              ...user.shoppingList.slice(index + 1, user.shoppingList.length),
+            ];
+
+            //console.log("List after delete", user.shoppingList);
+          }
+        }
+      );
+      return updatedShoppingList;
     }
   });
-
-  return data;
+  return updatedShoppingList;
 }
