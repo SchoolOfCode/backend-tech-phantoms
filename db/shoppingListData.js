@@ -23,6 +23,31 @@ export default [
     email: "test1@test1.com",
     shoppingList: [
       {
+        ingredient: "pears",
+        quantity: 2,
+        needToBuy: true,
+      },
+      {
+        ingredient: "nanas",
+        quantity: 1,
+        needToBuy: false,
+      },
+      {
+        ingredient: "satsumas",
+        quantity: 6,
+        needToBuy: true,
+      },
+      {
+        ingredient: "apples",
+        quantity: 2,
+        needToBuy: true,
+      },
+    ],
+  },
+  {
+    email: "TechPhantomsSOC@protonmail.com",
+    shoppingList: [
+      {
         ingredient: "chocolate bars",
         quantity: 2,
         needToBuy: true,
@@ -35,6 +60,11 @@ export default [
       {
         ingredient: "eggs",
         quantity: 6,
+        needToBuy: true,
+      },
+      {
+        ingredient: "icing",
+        quantity: 2,
         needToBuy: true,
       },
     ],

@@ -2,6 +2,7 @@ import express from "express";
 import {
   getShoppingList,
   addIngredients,
+  markIngredientAsDone,
   deleteIngredient,
 } from "../models/shoppingList.js";
 
@@ -20,6 +21,19 @@ router.get("/:email", async function (req, res) {
 //add ingredient to shoppingList for this user
 router.post("/:email", async function (req, res) {
   const addedIngredients = await addIngredients(req.params.email, req.body);
+
+  res.json({
+    success: true,
+    payload: addedIngredients,
+  });
+});
+
+//check off ingredient in shoppingList for this user
+router.post("/:email/checkOff/:item", async function (req, res) {
+  const addedIngredients = await markIngredientAsDone(
+    req.params.email,
+    req.params.item
+  );
 
   res.json({
     success: true,

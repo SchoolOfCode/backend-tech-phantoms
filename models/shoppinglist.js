@@ -23,6 +23,35 @@ export async function addIngredients(email, newItems) {
   return updatedShoppingList;
 }
 
+export async function markIngredientAsDone(email, ingredientName) {
+  //item is the name of the ingredient
+  // console.log("email:", email);
+  // console.log("ingredientName:", ingredientName);
+  const updatedShoppingList = allShoppingLists.filter((user) => {
+    if (user.email === email) {
+      //update this users shopping list
+      //console.log("Found users shopping list");
+      const updatedShoppingList = user.shoppingList.filter((listItem) => {
+        console.log(
+          `Checking if ${ingredientName} matches ${listItem.ingredient}`
+        );
+
+        if (listItem.ingredient === ingredientName) {
+          //find the ingredient in the shopping list
+          console.log("Match found (listItem):", listItem);
+          listItem.needToBuy = !listItem.needToBuy; //toggle boolean value
+
+          console.log("listItem after being changed", listItem);
+        }
+      });
+
+      console.log("updatedShoppingList:", updatedShoppingList);
+      return updatedShoppingList;
+    }
+  });
+  return updatedShoppingList;
+}
+
 export async function deleteIngredient(email) {
   //remove from shoppingListData immutably
   const data = allShoppingLists.filter((user) => {
