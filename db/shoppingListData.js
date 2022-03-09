@@ -45,7 +45,7 @@ export default [
     ],
   },
   {
-    email: "TechPhantomsSOC@protonmail.com",
+    email: "techphantomssoc@protonmail.com",
     shoppingList: [
       {
         ingredient: "chocolate bars",
