@@ -42,7 +42,7 @@ router.post("/:email/checkOff/:item", async function (req, res) {
 });
 
 //remove an ingredient from a user's shoppingList
-router.delete("/:email/checkOff/:item", async function (req, res) {
+router.delete("/:email/delete/:item", async function (req, res) {
   const updatedList = await deleteIngredient(req.params.email, req.params.item);
 
   res.json({
