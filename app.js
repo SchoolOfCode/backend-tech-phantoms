@@ -8,7 +8,7 @@ import logger from "morgan";
 
 import usersRouter from "./routes/users.js";
 import shoppingRouter from "./routes/shoppingList.js";
-
+import mondayRouter from "./routes/mealPlannerRoutes.js";
 const app = express();
 
 app.use(logger("dev"));
@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter);
 app.use("/shopping", shoppingRouter);
+app.use("/day", mondayRouter);
 
 app.use(function (req, res, next) {
   res
