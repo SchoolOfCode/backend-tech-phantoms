@@ -1,9 +1,13 @@
-# The Back End Project Example
+### Phantom Kitchen (Full Stack)
 
-Some starter code to get you up and running quickly.
+[Presentation + Demo](https://www.youtube.com/watch?v=n1A9Jk4iPKY), ~~[Live](https://development-phantom-kitchen.netlify.app)~~ (Heroku ends Free Tier DB and API hosting)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/cwissy/examples_back-end-project-week)
+Repositories: [Front End](https://github.com/SchoolOfCode/final-project-front-end-tech-phantoms), [Back End](https://github.com/SchoolOfCode/backend-tech-phantoms)
 
-## Guide
+## Overview
+NextJS, ExpressJS, Github Actions, PostgreSQL, Heroku, Jest, SuperTest
 
-[You can find the guide in this Google Doc](https://docs.google.com/document/d/1-8q034OBs1GMuMSMYuUYrpAEg37zh8qBMCOBcJoQamk/edit?usp=sharing)
+- Meal plan guide and planner, and recipe search and shopping app
+- Independently used new tech: NextJS and GitHub Actions (Continuous Testing and Deployment)
+- Testing with Jest, React Testing Library, and SuperTest
+- Uses external and internal API back end
